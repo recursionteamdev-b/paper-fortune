@@ -38,5 +38,31 @@ button:hover {
 
 .title {
     font-size: 40px;
+}
+
+/*about　style*/
+
+.content {
+    color: rgb(205, 0, 0);
+    width: 600px;
+    position: absolute;
+    top: 50%; 
+    left: 50%;  
+    transform: translateY(-50%) translateX(-50%); 
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.box {
+    background-color: #ffffff;
     
 }
+
+.box p {
+    color: rgb(205, 0, 0);
+}
+
+/*developers　style*/
+.name {
+    font-size: 20px;
+}
+
