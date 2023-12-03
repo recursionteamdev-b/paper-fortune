@@ -1,5 +1,7 @@
 body {
     height: 100vh;
+    position: relative;
+    z-index: 1;
     background: linear-gradient(360deg, rgb(255, 173, 0), rgb(255, 116, 116));
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,3 +68,11 @@ button:hover {
     font-size: 20px;
 }
 
+/*背景ひらひら*/
+#particles-js{ 
+    position:fixed;
+    z-index:-1;
+    width: 100%;
+    height: 100%;
+    
+    }
