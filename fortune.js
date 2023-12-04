@@ -1,28 +1,30 @@
-const fortuneTable = {
-    1: "大吉",
-    2: "中吉",
-    3: "小吉",
-    4: "吉",
-    5: "凶"
-}
+document.addEventListener('DOMContentLoaded', (event) => {
+    const fortuneTable = {
+        1: "大吉",
+        2: "中吉",
+        3: "小吉",
+        4: "吉",
+        5: "凶"
+    }
 
-const colorTable = {
-    1: "赤",
-    2: "青",
-    3: "黄色",
-    4: "紫",
-    5: "オレンジ"
-}
+    const colorTable = {
+        1: "赤",
+        2: "青",
+        3: "黄色",
+        4: "紫",
+        5: "オレンジ"
+    }
 
-const langTable = {
-    1: "Java",
-    2: "Php",
-    3: "Python",
-    4: "JavaScript",
-    5: "C++"
-}
+    const langTable = {
+        1: "Java",
+        2: "Php",
+        3: "Python",
+        4: "JavaScript",
+        5: "C++"
+    }
 
-function createFortuneCard(){
+    const omikujiDiv = document.getElementById("omikuji");
+
     let card = document.createElement("div");
     card.classList.add("card", "m-3", "col-3", "p-1", "set");
     card.setAttribute("style", "width: 40rem");
@@ -46,4 +48,13 @@ function createFortuneCard(){
 
     let langResult = document.createElement("h2");
     langResult.innerHTML = langTable[randomNum];
-}
+
+    card.append(title);
+    title.append(result);
+    card.append(colorTitle);
+    colorTitle.append(colorResult);
+    card.append(langTitle);
+    langTitle.append(langResult);
+
+    omikujiDiv.append(card);
+});
