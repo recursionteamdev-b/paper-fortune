@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
+
     const fortuneTable = {
         1: "大吉",
         2: "中吉",
@@ -41,12 +42,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     colorTitle.innerHTML = "今日のラッキーカラーは。。。";
 
     let colorResult = document.createElement("h2");
+    randomNum = Math.floor(Math.random() * 5) + 1;
     colorResult.innerHTML = colorTable[randomNum];
 
     let langTitle = document.createElement("h5");
     langTitle.innerHTML = "今日のおすすめの言語は。。。";
 
     let langResult = document.createElement("h2");
+    randomNum = Math.floor(Math.random() * 5) + 1;
     langResult.innerHTML = langTable[randomNum];
 
     card.append(title);
