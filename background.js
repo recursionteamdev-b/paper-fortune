@@ -30,7 +30,7 @@ particlesJS("particles-js",{
           }
         },
         "size":{
-          "value":5.305992965476349,
+          "value":3.305992965476349,
           "random":true,//サイズをランダム
           "anim":{
             "enable":true,
