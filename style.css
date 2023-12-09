@@ -5,9 +5,10 @@ body {
     background: linear-gradient(360deg, rgb(255, 173, 0), rgb(255, 116, 116));
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed; 
     text-align: center;
     color: #ffffff;
-    font-family:  "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;;
+    font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
 }
 
 a {
@@ -21,14 +22,11 @@ p {
 .footer_link {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; 
 }
 
 .footer_link a {
-    margin-bottom: 0;
-}
-
-.footer_link p {
-    margin-bottom: 0;
+    margin: 5px; 
 }
 
 button {
@@ -36,65 +34,102 @@ button {
     outline: none;
     color: #fff;
     background-color: #eb6100;
-    padding: 20px 45px;
+    padding: 10px 20px; 
     border-radius: 30px;
     font-weight: bold;
+    transition: background-color 0.3s, color 0.3s; 
+    font-size: 1.8em; 
+    padding: 15px 30px; 
 }
 
 button:hover {
-    background-color:#ffffff;
+    background-color: #ffffff;
     color: #eb6100;
 }
 
 .title {
-    font-size: 40px;
+    font-size: 3em; 
 }
-
-/*about　style*/
 
 .content {
     color: rgb(205, 0, 0);
-    width: 600px;
+    max-width: 90%; 
+    margin: auto; 
+    position: relative;
+    padding: 20px; 
+}
+
+.omikuji-paper {
+    margin: 20px auto;
+    width: 80%;
+    padding: 30px 0;
+    background-color: #fff;
+    color: rgb(193, 33, 33);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative; 
+    z-index: 2; 
+}
+
+
+img {
+    max-width: 70%;
+    height: auto;
+}
+
+#shakePrompt {
+    color: #ffffff;
+    font-size: 2em; 
     position: absolute;
-    top: 50%; 
-    left: 50%;  
-    transform: translateY(-50%) translateX(-50%); 
-    -webkit-transform: translateY(-50%) translateX(-50%);
+    bottom: 10%; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    padding: 10px; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 10px; 
 }
 
-.box {
-    background-color: #ffffff;
-    
+@media only screen and (max-width: 768px) {
+    .title {
+        font-size: 2em; 
+    }
+
+    .content, .omikuji-paper {
+        width: 100%; 
+    }
+
+    button {
+        padding: 15px 30px; 
+    }
+
+    #shakePrompt {
+        font-size: 1.2em; 
+    }
 }
 
-.box p {
-    color: rgb(205, 0, 0);
-}
-
-/*developers　style*/
-.name {
-    font-size: 20px;
-}
-
-/*背景ひらひら*/
-#particles-js{ 
-    position:fixed;
-    z-index:-1;
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    
-    }
+    z-index: -1; 
+}
 
-    .omikuji-paper {
-        margin: 0 auto;
-        display: block;
-        width: 20%;
-        padding: 60px 0;
-        background-color:#fff;
-        color: rgb(193, 33, 33);
-        margin-bottom: 30px;
-    }
+.footer_link a {
+    font-size: 1.1em; 
+}
 
-.result-text {
-    
+
+#omikujiImage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.card {
+    font-size: 1.5em; 
+    text-align: center; 
+    padding: 10px; 
 }

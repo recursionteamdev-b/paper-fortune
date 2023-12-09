@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // おみくじを引くボタンのイベントリスナー
     button.addEventListener('click', function () {
+        buttonSound.play();
         // おみくじの画像表示
         var omikujiImage = document.createElement('img');
         omikujiImage.id = 'omikujiImage';
@@ -15,28 +16,40 @@ document.addEventListener('DOMContentLoaded', function () {
         omikujiImage.style.position = 'absolute';
         document.body.appendChild(omikujiImage);
         imageDisplay = true;
-        shakeText.style.display = 'block'; // テキストを表示
+
+        // タッチイベントリスナーを追加
+        document.addEventListener('touchmove', function (e) {
+            if (imageDisplay) {
+                var touchX = e.touches[0].clientX;
+                var touchY = e.touches[0].clientY;
+                moveOmikuji(touchX, touchY);
+            }
+        });
+        var shakePrompt = document.getElementById('shakePrompt');
+        shakePrompt.style.display = 'block';
     });
 
     // マウスの動きに連動して画像を動かす
     document.addEventListener('mousemove', function (e) {
         if (imageDisplay) {
-            var omikujiImage = document.getElementById('omikujiImage');
-            omikujiImage.style.left = (e.pageX - omikujiImage.width / 2) + 'px';
-            omikujiImage.style.top = (e.pageY - omikujiImage.height / 2) + 'px';
+            moveOmikuji(e.pageX, e.pageY);
+        }
+    });
 
-            // マウスを指定回数動かしたら、棒の画像に変更
+    function moveOmikuji(x, y) {
+        var omikujiImage = document.getElementById('omikujiImage');
+        if (omikujiImage) {
+            omikujiImage.style.left = (x - omikujiImage.width / 2) + 'px';
+            omikujiImage.style.top = (y - omikujiImage.height / 2) + 'px';
             if (mouseMoveCount < maxMouseMove) {
                 mouseMoveCount++;
                 if (mouseMoveCount >= maxMouseMove) {
-                    omikujiImage.src = 'images/omikuji_shake2.png'; // 棒画像のパス
-                    shakeText.style.display = 'none'; // テキストを非表示
-                    // 2秒後に画面遷移
+                    omikujiImage.src = 'images/omikuji_shake2.png';
                     setTimeout(function () {
-                        window.location.href = 'result.html'; // 画面遷移先のURL
+                        window.location.href = 'result.html';
                     }, transitionDelay);
                 }
             }
         }
-    });
+    }
 });
