@@ -19,12 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // タッチイベントリスナーを追加
         document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
             if (imageDisplay) {
                 var touchX = e.touches[0].clientX;
                 var touchY = e.touches[0].clientY;
                 moveOmikuji(touchX, touchY);
             }
-        });
+    },{ passive: false });
+        
         var shakePrompt = document.getElementById('shakePrompt');
         shakePrompt.style.display = 'block';
     });
