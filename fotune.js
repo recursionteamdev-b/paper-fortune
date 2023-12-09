@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const langTable = {
         1: "Java",
-        2: "Php",
+        2: "PHP",
         3: "Python",
         4: "JavaScript",
         5: "C++"
