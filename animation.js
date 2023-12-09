@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // おみくじを引くボタンのイベントリスナー
     button.addEventListener('click', function () {
+        buttonSound.play();
         // おみくじの画像表示
         var omikujiImage = document.createElement('img');
         omikujiImage.id = 'omikujiImage';
